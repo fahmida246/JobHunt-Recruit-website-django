@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} container
+{% endblock title %}
+
+{% block body %}
+
+<div class="container my-3 b1">
+    <h3>candidates:</h3>
+    {% for feedback in feedbacks %}
+
+    <div class="container">
+        <h1 class="alert-danger text-center p-3">Candidate Detail</h1>
+        <div class="row">
+
+          <p>{{feedback.title}}</p>
+          <p> {{feedback.feedback}}</p>
+          
+   
+
+{% endfor %}
+</div>
+
+
+
+
+
+
+{% endblock body %}
+{% block footer%} {% endblock footer%}

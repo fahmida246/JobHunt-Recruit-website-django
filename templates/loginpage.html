@@ -1,0 +1,95 @@
+{% extends 'base.html' %} {% load static %} {% block body %}
+<style>
+  .sign-up-form {
+    width: 800px;
+    border: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+    background: #fff;
+    padding: 20px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .b1 {
+    background: black url("../static/images/c2.jpg") no-repeat center
+      center/cover;
+    height: 40vh;
+    color: #186896;
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 0 80px;
+  }
+</style>
+{% ifequal error "no" %}
+<script>
+  alert('Logged In Successfully...');
+  window.location = ('{% url 'profileforcompany' %}');
+</script>
+{% endifequal %} {% ifequal error "yes" %}
+<script>
+  alert("Invalid Login Credentials, Try Again");
+</script>
+{% endifequal %}
+<h1 class="b1">log in as company</h1>
+<div class="sign-up-form">
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label style="font-size: 20px;" for="InputEmail">Email address</label>
+      <input
+        name="emailid"
+        class="form-control"
+        id="InputEmail"
+        placeholder="Enter email"
+      />
+      <small id="emailHelp" class="form-text text-muted"
+        >We'll not share your email with anyone else.</small
+      >
+    </div>
+    <div class="form-group">
+      <label for="InputPassword">Password</label>
+      <input
+        type="password"
+        name="pwd"
+        class="form-control"
+        id="InputPassword"
+        placeholder="Password"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+{% comment %}
+<section class="userlog" id="userlog">
+  <div class="container">
+    <h1 class="heading mt-5">Company Login</h1>
+    <div class="row">
+      <form method="post">
+        {% csrf_token %}
+        <input
+          type="email"
+          placeholder="Enter Email ID"
+          name="emailid"
+          class="box"
+        />
+        <input
+          type="password"
+          placeholder="Enter Password"
+          name="pwd"
+          class="box"
+        />
+        <p>
+          don't have an account? <a href="{% url 'signin' %}">register now</a>
+        </p>
+        <input type="submit" class="btn btn-primary" value="login" />
+      </form>
+    </div>
+  </div>
+</section>
+{% endcomment %} {% endblock body %} {% block footer%} {% endblock footer%}

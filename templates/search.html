@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %} container
+{% endblock title %}
+
+{% block body %}
+<section class="bg-primary text-light p-5">
+    <div class="container">
+        <div class="d-md-flex justify-content-between align-items-center">
+            <h3 class="mb-2 mb-md-0">Search for posts</h3>
+            <form action="/search" method="get">
+                <div class="input-group news-input">
+
+                    <input type="search" class="form-control" placeholder="search" name="query" id="search">
+                    <button class="btn btn-dark btn-lg" type="submit">Submit</button>
+
+                </div>
+            </form>
+        </div>
+</section>
+    <h3>searched results are:</h3>
+    {% for post in allposts %}
+
+    <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">Article by: {{post.author}}</strong>
+            <h3 class="mb-0">{{post.title}}</h3>
+            <div class="mb-1 text-muted">{{post.datetime}}</div>
+            <p class="card-text mb-auto">{{post.content| truncatechars:500}}</p>
+            <div class="my-3">
+                <a href="#" role="button" class="btn btn-primary">Continue reading</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+
+
+
+{% endblock body %}
+{% block footer%} {% endblock footer%}

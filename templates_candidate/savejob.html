@@ -1,0 +1,48 @@
+{% extends 'usernavigation2.html' %}
+{% block body %}
+
+<style>
+    .b1 {
+        background-color: lightgrey;
+    }
+</style>
+
+<section class="bg-primary text-light p-5">
+    <div class="container">
+        <div class="d-md-flex justify-content-between align-items-center">
+            <h3 class="mb-2 mb-md-0">Search for jobs</h3>
+            <form action="/searchforjob" method="get">
+                {% csrf_token %}
+                <div class="input-group news-input">
+
+                    <input type="search" class="form-control" placeholder="search" name="query" id="search">
+                    <button class="btn btn-dark btn-lg" type="submit">Submit</button>
+
+                </div>
+            </form>
+        </div>
+</section>
+
+<div class="container my-3 ">
+    <h3>Trending jobs:</h3>
+    {% for task in tasks %}
+    <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative b1">
+        <div class="col p-4 d-flex flex-column position-static">
+            <h3 class="mb-0">{{task.title}}</h3>
+            <p class="mb-0">Experience: {{task.experience}}</p>
+            <p class="mb-0">Salary: {{task.salary}}</p>
+            <p class="card-text mb-auto">Describtion: {{task.describtion| truncatechars:500}}</p>
+            
+            
+        </div>
+
+    </div>
+    {% endfor %}
+</div>
+
+
+</div>
+
+
+
+{% endblock body %}

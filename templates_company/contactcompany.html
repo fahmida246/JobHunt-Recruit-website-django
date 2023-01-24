@@ -1,0 +1,25 @@
+{% extends 'usernavigation.html' %}
+
+
+{% block body %}
+<div class="container-fluid px-0">
+
+</div>
+<div class="container-fluid ">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-6 col-md-4">
+            <h1 class="text-center">Contact us</h1>
+
+
+            <form method="post" action="">
+                {% csrf_token %}
+
+               {{form.as_p}}
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

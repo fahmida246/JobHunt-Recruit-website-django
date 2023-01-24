@@ -1,0 +1,32 @@
+{% extends 'usernavigation2.html' %}
+
+
+{% block body %}
+
+<div class="container my-3 b1">
+    <h3>Applications:</h3>
+    {% for candidate in candidates %}
+
+    <div class="container">
+        <h1 class="alert-danger text-center p-3">My application Details:</h1>
+        <div class="row">
+         <div class="col-sm-10 shadow p-5 offset-sm-1">
+          <img src="{{candidate.image.url}}" alt="" class="img-fluid img-thumbnail float-end mt-4" width="150" height="150">
+          <p class="float-end">Applicantion No: {{candidate.id}}</p>
+          
+          <p>Name: {{candidate.name}}</p>
+          <p>job title: {{candidate.jobno}}</p>
+          <p>Date of Birth: {{candidate.dob}}</p>
+          <p>Gender: {{candidate.gender}}</p>
+          <p>Address: {{candidate.locality}}, {{candidate.city}}, {{candidate.state}} - {{candidate.pin}}</p>
+          <p>Mobile No: {{candidate.mobile}}</p>
+          <p>Email ID: {{candidate.email}}</p>
+          <p>Resume: <a href="{{candidate.ifile.url}}">Download File</a></p>
+
+          <a href="{%url 'updatecandidateform' candidate_id=candidate.id %}" role="button" class="btn btn-primary">edit application</a>
+          
+        </div>   
+
+{% endfor %}
+</div>
+{%endblock%}

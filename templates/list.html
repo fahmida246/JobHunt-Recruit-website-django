@@ -1,0 +1,7 @@
+<div class="container">
+    <h4 class="text-center mb-3"><u>List of Candidate</u></h4>
+    {% for candidate in candidates %}
+     {{candidate.id}} : <a href="{% url 'candidate' candidate.id %}">{{candidate.name}}</a>
+     <hr>
+    {% endfor %}
+   </div>

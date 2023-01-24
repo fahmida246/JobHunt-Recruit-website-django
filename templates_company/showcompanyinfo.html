@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %} container
+{% endblock title %}
+
+{% block body %}
+
+<div class="container card shadow mt-5">
+    <div class="card-body">
+
+     <h2 class="text-center text-danger">PROFILE</h2>
+     <hr>
+     <DIV class="row">
+       <div class="col-md-6">
+         <b>Full Name : </b>
+       </div>
+       <div class="col-md-6" style="text-transform: capitalize">
+           {{data.name}} 
+       </div>
+     </DIV>
+     <hr>
+
+     <DIV class="row">
+       <div class="col-md-6">
+         <b>Email ID : </b>
+       </div>
+       <div class="col-md-6" style="text-transform: capitalize">
+              {{data.user.email}}
+       </div>
+     </DIV>
+     <hr>
+
+     <DIV class="row">
+       <div class="col-md-6">
+          <b>Contact : </b>
+       </div>
+       <div class="col-md-6" style="text-transform: capitalize">
+               {{data.phone}}
+       </div>
+     </DIV>
+     <hr>
+
+
+     <hr>
+     <a href="{% url 'companyedit' %}" class="btn btn-primary mt-4">Edit Profile</a>
+   </div>
+</div>
+
+
+
+
+
+
+
+{% endblock body %}
+{% block footer%} {% endblock footer%}

@@ -1,0 +1,36 @@
+{% extends 'usernavigation.html' %}
+
+{% load crispy_forms_filters %}
+{% block body %}
+
+
+<div class="container">
+    <h3>Create job post:</h3>
+    <form action="" method="POST">
+        {{form|crispy}}
+        {% csrf_token %}
+        <!--{{form}} ( it is 1 )solution -->
+        <!--
+        <ul class="contactList">
+            <li id="subject" class="contact"> title: {{ form.title }}</li>
+            <li id="email" class="contact">{{ form.companyname }}</li>
+            <li id="message" class="contact">{{ form.describtion }}</li>
+        </ul>
+    
+         
+        {% for field in form %}
+        <div class="row">
+            <label for="{{ field.title}}">{{ field.label}}</label>{{ field }}
+        </div>
+        {% endfor %}
+        <input type="submit" name="Submit">-->
+        <input type="submit" name="Submit">
+   
+        
+    </form>
+</div>
+
+
+
+
+{% endblock body %}

@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<style>
+    .b1 {
+        background-color: #E1EBF1 ;
+        
+        
+    }
+    #job{
+        background: black url("../static/images/c2.jpg") no-repeat center
+      center/cover;
+    height: 40vh;
+    color: #186896;
+  
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 0 80px;
+    
+
+    }
+    .c1{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+       background: #c7cfd3;
+    }
+</style>
+
+<section id="job" class=" text-black p-4">
+    <div class="container ">
+        <div class="d-md-flex justify-content-between align-items-center">
+            <h3 style="font-size: 30px;" class="mb-2 mb-md-0 bg-light ">Search for jobs</h3>
+            <form action="/searchforjob" method="get">
+                {% csrf_token %}
+                <div class="input-group news-input">
+
+                    <input type="search" class="form-control" placeholder="search" name="query" id="search">
+                    <button class="btn btn-dark btn-sm" type="submit">Submit</button>
+
+                </div>
+            </form>
+        </div>
+</section>
+
+<div class="container my-3 ">
+    <h3>Trending jobs:</h3>
+    {% for task in tasks %}
+    <div class="container c1">
+        <h3 class="mb-0">{{task.title}}</h3> <br>
+        <p class="mb-0"> <i class="fa fa-briefcase" style="color: cadetblue;"></i> Experience: {{task.experience}}</p> <br>
+       <p class="mb-0"> <i class="fa fa-dollar" style="color: cadetblue;"></i> Salary: {{task.salary}}</p>  <br>
+        <p class="card-text mb-auto"> {{task.describtion| truncatechars:500}}</p>
+        <div class="my-3">
+            <a href="/loginpage2" role="button" class="btn btn-primary">Apply here</a>
+        </div>
+    </div>
+    <!-- <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative b1 ">
+        <div class="col p-4 d-flex flex-column position-static">
+            <h3 class="mb-0">{{task.title}}</h3> <br>
+            <p class="mb-0"> <i class="fa fa-briefcase" style="color: cadetblue;"></i> Experience: {{task.experience}}</p> <br>
+           <p class="mb-0"> <i class="fa fa-dollar" style="color: cadetblue;"></i> Salary: {{task.salary}}</p>  <br>
+            <p class="card-text mb-auto"> {{task.describtion| truncatechars:500}}</p>
+            <div class="my-3">
+                <a href="/loginpage2" role="button" class="btn btn-primary">Apply here</a>
+            </div>
+        </div>
+
+    </div> -->
+    {% endfor %}
+</div>
+
+
+</div>
+
+
+
+{% endblock body %}

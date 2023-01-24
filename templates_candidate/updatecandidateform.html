@@ -1,0 +1,37 @@
+{% extends 'usernavigation2.html' %}
+{% block title %} apply
+{% endblock title %}
+
+{% block body %}
+
+
+<div class="container">
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <!--{{form}} ( it is 1 )solution -->
+        <!--
+        <ul class="contactList">
+            <li id="subject" class="contact"> title: {{ form.title }}</li>
+            <li id="email" class="contact">{{ form.companyname }}</li>
+            <li id="message" class="contact">{{ form.describtion }}</li>
+        </ul>
+    
+         
+        {% for field in form %}
+        <div class="row">
+            <label for="{{ field.title}}">{{ field.label}}</label>{{ field }}
+        </div>
+        {% endfor %}-->
+        <input type="submit" name="Submit">
+    
+   
+        
+    </form>
+</div>
+
+
+
+
+{% endblock body %}
+{% block footer%} {% endblock footer%}
