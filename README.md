@@ -1,6 +1,7 @@
 # JobHunt-Recruit-website-django
 
 in this application, 4 type of user can sign up, log in and use features.
+
 **** normal user:
 1. they can visit website
 2. they can send message to admin
